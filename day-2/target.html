@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Listener</title>
+</head>
+<body>
+    <canvas id="canvas"
+     style="background-color: black"
+     width="300"
+     height="300">
+    </canvas>
+</body>
+<script>
+    const canvas = document.getElementById("canvas");
+    const context = canvas.getContext("2d");
+
+
+    canvas.addEventListener("mousemove", (event) => {
+        console.log(event.clientX, event.clientY);
+
+        context.clearRect(0, 0, 300, 300); //clear screen
+
+        context.beginPath();
+        context.fillStyle = "white";
+        context.arc(event.offsetX, event.offsetY, 40, 0, 360);
+        context.fill();
+
+        context.beginPath();
+        context.fillStyle = "blue";
+        context.arc(event.offsetX, event.offsetY, 30, 0, 360);
+        context.fill();
+
+        context.beginPath();
+        context.fillStyle = "yellow";
+        context.arc(event.offsetX, event.offsetY, 20, 0, 360);
+        context.fill();
+
+        context.beginPath();
+        context.fillStyle = "red";
+        context.arc(event.offsetX, event.offsetY, 10, 0, 360);
+        context.fill();
+
+
+    });
+
+    //keyboard ko lagi
+
+    // document.addEventListener("keydown", (event) => {
+    //     if (event.code == "ArrowUp") {
+
+    //         console.log("JUMP");
+    //     }
+    // });
+
+    
+
+
+
+</script>
+</html>
