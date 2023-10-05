@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timing Events</title>
+</head>
+<body>
+    <canvas 
+    id="canvas"
+    width="900"
+    height="600"
+    style="background-color: black;">
+    </canvas>
+</body>
+<script>
+    const canvas = document.getElementById("canvas");
+    const context = canvas.getContext("2d");
+
+    let x = 100;
+    let y = 100;
+
+    setInterval( () => {
+         
+        context.clearRect(0, 0, 600, 600);
+        console.log("x = ", x);
+
+        context.beginPath();
+        context.fillStyle="red";
+        context.arc(x, y, 20, 0, 360);
+        context.fill();
+
+        x = x+1;
+        y = y+1;
+
+        context.beginPath();
+        context.fillStyle="white";
+        context.arc(x+50, y+50, 20, 0, 360);
+        context.fill();
+
+
+    }, 1000/60);
+</script>
+</html>

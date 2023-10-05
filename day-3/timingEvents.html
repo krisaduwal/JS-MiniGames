@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>game loop</title>
+</head>
+<body>
+    <canvas
+    id="canvas"
+    width="500"
+    height="500"
+    style="background-color: black;">
+
+    </canvas>
+</body>
+
+<script>
+    const canvas = document.getElementById("canvas");
+    const context = canvas.getContext("2d");
+
+    let x = 40;
+    let y = 20;
+    let stop = false;
+
+
+    
+
+    function update(){
+        context.clearRect(0, 0, 500, 500);
+        context.beginPath();
+        context.fillStyle= "red";
+        context.arc(x, y, 20, 0, 360);
+        context.fill();
+
+        x +=1;
+        // y +=1;
+
+        context.beginPath();
+        context.fillStyle= "white";
+        context.arc(x+50, y, 20, 0, 360);
+        context.fill();
+
+        if(stop == true){
+            y+=10;
+            if(y>500 -20){
+                stop = false;
+            }
+        }
+
+        window.requestAnimationFrame(update);
+    }
+
+    update();
+    canvas.addEventListener("click", (event) => {
+        x = event.clientX;
+        y = event.clientY;
+        stop = true;
+    });
+</script>
+</html>
