@@ -4,10 +4,10 @@ const context = canvas.getContext("2d");
 class Ball{
     constructor(){
         this.position = {
-            x: 50,
+            x: 300,
             y: 80
         }
-        this.radius = 20;
+        this.radius = 30;
         this.velocity = {
             x: 1,
             y: 1
@@ -17,10 +17,10 @@ class Ball{
     }
     draw(){
         context.beginPath();
-        context.fillStyle = "rgba(355, 0, 0, 0.3)";
+        context.fillStyle = "#a0e8af";
         context.arc(this.position.x, this.position.y, this.radius, 0, 360);
         context.fill();
-        context.strokeStyle = "rgba(255, 0, 0, 0.8)";
+        context.strokeStyle = "	#326c81";
         context.stroke();
     }
 
